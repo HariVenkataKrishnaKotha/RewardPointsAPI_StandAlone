@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RewardPointsAPI_StandAlone", "RewardPointsAPI_StandAlone.csproj", "{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56F3B9A2-B260-4700-B289-ABA43D8F4732}
+	EndGlobalSection
+EndGlobal
