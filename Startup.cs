@@ -1,12 +1,55 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
-namespace RewardPointsAPI_StandAlone
+namespace RewardPointsAPI_SA
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public Startup(IConfiguration configuration)
         {
-            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Reward Points API", Version = "v1" });
+            });
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reward Points API V1");
+            });
         }
     }
 }
