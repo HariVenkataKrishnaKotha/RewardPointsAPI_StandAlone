@@ -4,8 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Logging;
 
-namespace RewardPointsAPI_SA
+namespace RewardPointsAPI_StandAlone
 {
     public class Startup
     {
@@ -19,6 +20,8 @@ namespace RewardPointsAPI_SA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddLogging();
 
             services.AddSwaggerGen(c =>
             {

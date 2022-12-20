@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using RewardPointsAPI_StandAlone;
 
-namespace RewardPointsAPI_SA
+namespace RewardPointsAPI_StandAlone
 {
     public class Program
     {

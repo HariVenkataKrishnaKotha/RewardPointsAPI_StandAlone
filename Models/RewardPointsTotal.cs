@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace RewardPointsAPI_SA.Models
+namespace RewardPointsAPI_StandAlone.Models
 {
     // RewardPointsTotal.cs
 
