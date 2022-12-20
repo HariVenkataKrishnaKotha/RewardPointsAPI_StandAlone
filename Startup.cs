@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Logging;
+using Serilog.Extensions.Logging.File;
 
 namespace RewardPointsAPI_StandAlone
 {
@@ -29,7 +29,7 @@ namespace RewardPointsAPI_StandAlone
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -53,6 +53,7 @@ namespace RewardPointsAPI_StandAlone
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reward Points API V1");
             });
+            loggerFactory.AddFile($@"{Directory.GetCurrentDirectory()}\Logs\log.txt");
         }
     }
 }
