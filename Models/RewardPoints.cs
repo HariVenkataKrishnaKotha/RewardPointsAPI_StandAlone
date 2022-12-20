@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace RewardPointsAPI_SA.Models
+namespace RewardPointsAPI_StandAlone.Models
 {
     // RewardPoints.cs
 
@@ -10,6 +10,6 @@ namespace RewardPointsAPI_SA.Models
         public string? Customer { get; set; }
         public int Month { get; set; }
         public int Points { get; set; }
-        public string MonthName => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Month);
+        
     }
 }
