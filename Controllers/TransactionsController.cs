@@ -63,12 +63,12 @@ namespace RewardPointsAPI_StandAlone.Controllers
                     })
                     .ToList();
 
-                _logger.LogInformation("Returning reward points for the specified filters.");
+                _logger.LogInformation("Returning reward points for the customer: " + customerName + " in the month: " + monthName);
                 return rewardPoints;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while getting reward points.");
+                _logger.LogError(ex, "An error occurred while getting reward points for the customer: " + customerName + " in the month: " + monthName);
                 throw;
             }
         }
@@ -94,12 +94,12 @@ namespace RewardPointsAPI_StandAlone.Controllers
                     })
                     .ToList();
 
-                _logger.LogInformation("Returning total reward points for the specified filters.");
+                _logger.LogInformation("Returning total reward points for the customer:" + customerName);
                 return rewardPoints;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while getting total reward points.");
+                _logger.LogError(ex, "An error occurred while getting total reward points for the customer:" + customerName);
                 throw;
             }
         }
