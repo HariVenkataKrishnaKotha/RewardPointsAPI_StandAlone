@@ -125,6 +125,21 @@ namespace RewardPointsAPI_StandAlone.Controllers
             }
         }
 
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            _logger.LogInformation("Health Check is being done!");
+            try
+            {
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Health Check Failed! " + ex);
+                throw;
+            }
+        }
+
         private int GetPoints(decimal amount)
         {
             var points = 0;
