@@ -9,7 +9,7 @@ namespace RewardPointsAPI_StandAlone.Models
     {
         public string? Customer { get; set; }
         public int Month { get; set; }
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
         public string GetMonthName => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Month);
     }
 }
