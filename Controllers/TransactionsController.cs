@@ -17,6 +17,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
             _configuration = configuration;
         }
 
+        //Get the list of all the transactions
         [HttpGet]
         public IEnumerable<Transaction> Get()
         {
@@ -41,6 +42,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
             }
         }
 
+        //Get the Reward points per month for a customer
         [HttpGet("rewardpoints")]
         public IEnumerable<RewardPoints> GetRewardPoints([FromQuery] string customerName, [FromQuery] string monthName)
         {
@@ -86,6 +88,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
             }
         }
 
+        //Get the total Reward points for the customer over the three months period
         [HttpGet("rewardpoints/total")]
         public IEnumerable<RewardPointsTotal> GetTotalRewardPoints([FromQuery] string customerName)
         {
@@ -125,6 +128,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
             }
         }
 
+        //Health Check End Point
         [HttpGet("health")]
         public IActionResult HealthCheck()
         {
@@ -140,21 +144,30 @@ namespace RewardPointsAPI_StandAlone.Controllers
             }
         }
 
+        //Calculate the reward points 
         private int GetPoints(decimal amount)
         {
-            var points = 0;
-
-            if (amount > 50)
+            try
             {
-                points += (int)(amount - 50);
-            }
+                var points = 0;
 
-            if (amount > 100)
+                if (amount > 50)
+                {
+                    points += (int)(amount - 50);
+                }
+
+                if (amount > 100)
+                {
+                    points += (int)(amount - 100);
+                }
+                _logger.LogInformation("Reward points calculated Successfully!");
+                return points;
+            }
+            catch(Exception ex)
             {
-                points += (int)(amount - 100);
+                _logger.LogError("Error calculating reward points! "+ex);
+                throw;
             }
-
-            return points;
         }
     }
 }
