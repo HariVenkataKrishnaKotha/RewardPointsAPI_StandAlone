@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-
-namespace RewardPointsAPI_StandAlone.Models
+﻿namespace RewardPointsAPI_StandAlone.Models
 {
     // RewardPoints.cs
 

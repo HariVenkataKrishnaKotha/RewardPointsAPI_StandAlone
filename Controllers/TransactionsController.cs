@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using RewardPointsAPI_StandAlone.Models;
 
 namespace RewardPointsAPI_StandAlone.Controllers
@@ -25,7 +22,15 @@ namespace RewardPointsAPI_StandAlone.Controllers
         {
             try
             {
-                var transactions = _configuration.GetSection("Transactions").Get<List<Transaction>>();
+                var transactionsSection = _configuration.GetSection("Transactions");
+                var transactions = transactionsSection.GetChildren()
+                    .Select(s => new Transaction
+                    {
+                        Customer = s["Customer"],
+                        Month = int.Parse(s["Month"]),
+                        Amount = decimal.Parse(s["Amount"])
+                    })
+                    .ToList();
                 _logger.LogInformation("Returning all transactions.");
                 return transactions;
             }
@@ -41,7 +46,15 @@ namespace RewardPointsAPI_StandAlone.Controllers
         {
             try
             {
-                var transactions = _configuration.GetSection("Transactions").Get<List<Transaction>>();
+                var transactionsSection = _configuration.GetSection("Transactions");
+                var transactions = transactionsSection.GetChildren()
+                    .Select(s => new Transaction
+                    {
+                        Customer = s["Customer"],
+                        Month = int.Parse(s["Month"]),
+                        Amount = decimal.Parse(s["Amount"])
+                    })
+                    .ToList();
 
                 if (!string.IsNullOrEmpty(customerName))
                 {
@@ -78,7 +91,15 @@ namespace RewardPointsAPI_StandAlone.Controllers
         {
             try
             {
-                var transactions = _configuration.GetSection("Transactions").Get<List<Transaction>>();
+                var transactionsSection = _configuration.GetSection("Transactions");
+                var transactions = transactionsSection.GetChildren()
+                    .Select(s => new Transaction
+                    {
+                        Customer = s["Customer"],
+                        Month = int.Parse(s["Month"]),
+                        Amount = decimal.Parse(s["Amount"])
+                    })
+                    .ToList();
 
                 if (!string.IsNullOrEmpty(customerName))
                 {
