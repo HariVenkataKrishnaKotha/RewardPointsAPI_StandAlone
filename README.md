@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ### Installing
 
@@ -88,7 +88,7 @@ The API reads the list of transactions from the `Transactions` section of the `a
 ```
 ## Logging
 
-The API logs requests and errors using the `Microsoft.Extensions.Logging` package. The logs are written to a text file in the `Logs` folder. The logging configuration can be modified in the `Logging` section of the `appsettings.json` file.
+The API logs requests and errors using the `Serilog.Extensions.Logging.File` package. The logs are written to a text file in the `Logs` folder. The logging configuration can be modified in the `Logging` section of the `appsettings.json` file.
 
 # Invoking the API
 
@@ -135,13 +135,40 @@ curl "http://localhost:7161/api/transactions/rewardpoints/total?customerName=Har
 
 The API is configured to read the transactions data from the `Transactions` section of the `appsettings.json` file. You can modify the transactions data in this file to test different scenarios.
 
-## Running the Tests
+## Unit Tests
 
-The API has unit tests for the controllers and the `CalculateMonthlyRewardPoints` helper method. To run the tests, navigate to the project directory and run the following command:
+The API has unit tests for the api endpoints. To run the tests, navigate to the project directory and run the following command:
+
+### Installing the tests
+
+1. Clone the repository:
+
+```
+git clone https://github.com/HariVenkataKrishnaKotha/RewardPointsAPITest.git
+```
+
+2. Add project to the same solution as the API:
+
+3. Navigate to the root directory of test
+
+```
+cd RewardPointsAPITest
+```
+
+3. Restore the NuGet packages:
+
+```
+dotnet restore
+```
+
+4. Run the tests:
 
 ```
 dotnet test
 ```
+<blockquote>
+<p>Note: The test data can be modified and mock as required in the UnitTest1.cs file</p>
+</blockquote>
 
 ## Built With
 
