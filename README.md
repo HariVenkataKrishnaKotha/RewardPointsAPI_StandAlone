@@ -148,6 +148,7 @@ dotnet test
 - [.NET 6.0](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6) - The web framework used
 - [NuGet](https://www.nuget.org/) - Dependency Management
 - [NUnit](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit) - Unit Tesing Framework
+
 ## Transaction Data
 
 The API reads the transaction data from the `Transactions` section of the `appsettings.json` file. Here is the transaction data in a table format:
@@ -203,6 +204,56 @@ Here are examples of the output for each endpoint in a table format:
 | Alex Jones     | 200    |
 | Brian Paul     | 168    |
 
+# Containerizing the API with Docker
+
+The API can be easily containerized using Docker. Follow these steps to build and run the Docker image:
+
+1. Install Docker on your system.
+2. Navigate to the root directory of the project.
+3. Build the Docker image using the following command:
+
+```
+docker build -t rewardpointsapistandalone .
+```
+
+4. Start the container using the following command:
+
+```
+docker run -p 80:80 rewardpointsapi
+```
+
+This will start the container and expose the API on port 80. You can then access the API using a web browser or a tool like `curl`.
+
+To stop the container, run the following command:
+
+```
+docker stop <CONTAINER_ID>
+```
+# Accessing the Swagger UI
+
+The API documentation can be accessed via the Swagger UI. To view the Swagger UI, follow these steps:
+
+1. Start the API using the instructions provided in the previous sections.
+2. Open a web browser and navigate to the base URL of the API.
+3. Append `/swagger` to the base URL and press Enter.
+
+For example, if the base URL of the API is `http://localhost:7161`, the Swagger UI can be accessed at `http://localhost:7161/swagger`. This is used in the above API.
+
+The Swagger UI displays the API documentation and allows you to test the API endpoints.
+
+## Output Images
+
+### `GET /api/Transactions`
+![image](https://user-images.githubusercontent.com/31946053/209176413-a00ec4d5-0dc5-4935-8ae2-7e19090cb546.png)
+
+### `GET /api/Transactions/rewardpoints`
+![image](https://user-images.githubusercontent.com/31946053/209177502-c19e8a7a-935c-4bf5-aef7-dc5dd869d509.png)
+
+### `GET /api/Transactions/rewardpoints/total`
+![image](https://user-images.githubusercontent.com/31946053/209177721-eb161610-681b-4618-a771-438fd6697b3c.png)
+
+### `GET /api/Transactions/health`
+![image](https://user-images.githubusercontent.com/31946053/209177954-e4e393cb-8deb-4af8-a391-96dd06f89690.png)
 
 ## License
 
