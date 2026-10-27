@@ -33,7 +33,7 @@ namespace RewardPointsAPI_StandAlone.Tests
                 new MemoryConfigurationProvider(memoryConfigurationSource)
             })
                 .GetSection("Transaction1");
-            transaction1["Customer"] = "Hari Kotha";
+            transaction1["Customer"] = "Jane Doe";
             transaction1["Month"] = "1";
             transaction1["Amount"] = "120";
 
@@ -43,7 +43,7 @@ namespace RewardPointsAPI_StandAlone.Tests
                 new MemoryConfigurationProvider(memoryConfigurationSource)
             })
                 .GetSection("Transaction2");
-            transaction2["Customer"] = "Hari Kotha";
+            transaction2["Customer"] = "Jane Doe";
             transaction2["Month"] = "1";
             transaction2["Amount"] = "80";
             
@@ -53,7 +53,7 @@ namespace RewardPointsAPI_StandAlone.Tests
                 new MemoryConfigurationProvider(memoryConfigurationSource)
             })
                 .GetSection("Transaction3");
-            transaction3["Customer"] = "Hari Kotha";
+            transaction3["Customer"] = "Jane Doe";
             transaction3["Month"] = "3";
             transaction3["Amount"] = "200";
 
@@ -107,7 +107,7 @@ namespace RewardPointsAPI_StandAlone.Tests
             // Assert
             Assert.That(result, Is.InstanceOf<IEnumerable<Transaction>>());
             Assert.That(result.Count(), Is.EqualTo(5));
-            Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Hari Kotha"));
+            Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Jane Doe"));
             Assert.That(result.ElementAt(0).Month, Is.EqualTo(1));
             Assert.That(result.ElementAt(0).Amount, Is.EqualTo(120));
             Assert.That(result.ElementAt(3).Customer, Is.EqualTo("Alex Jones"));
@@ -128,12 +128,12 @@ namespace RewardPointsAPI_StandAlone.Tests
                 .Returns(transactions);*/
 
             // Act
-            var result = _controller.GetRewardPoints("Hari Kotha", "January");
+            var result = _controller.GetRewardPoints("Jane Doe", "January");
 
             // Assert
             Assert.That(result, Is.InstanceOf<IEnumerable<RewardPoints>>());
             Assert.That(result.Count(), Is.EqualTo(1));
-            Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Hari Kotha"));
+            Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Jane Doe"));
             Assert.That(result.ElementAt(0).Month, Is.EqualTo(1));
             Assert.That(result.ElementAt(0).Points, Is.EqualTo(120));
         }
