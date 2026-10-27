@@ -69,11 +69,11 @@ namespace RewardPointsAPI_StandAlone.Controllers
                 }
 
                 var rewardPoints = transactions
-                    .GroupBy(t => t.Month)
+                    .GroupBy(t => new { t.Customer, t.Month })
                     .Select(g => new RewardPoints
                     {
-                        Month = g.Key,
-                        Customer = g.First().Customer,
+                        Month = g.Key.Month,
+                        Customer = g.Key.Customer,
                         Points = g.Sum(t => GetPoints(t.Amount))
                     })
                     .ToList();
