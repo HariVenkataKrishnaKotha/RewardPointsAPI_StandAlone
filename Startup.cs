@@ -53,7 +53,8 @@ namespace RewardPointsAPI_StandAlone
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reward Points API V1");
             });
-            loggerFactory.AddFile($@"{Directory.GetCurrentDirectory()}\Logs\log.txt");
+            // Path.Combine keeps the path valid on Linux (and in the container) as well as Windows.
+            loggerFactory.AddFile(Path.Combine(AppContext.BaseDirectory, "Logs", "log.txt"));
         }
     }
 }
