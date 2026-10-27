@@ -44,7 +44,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
 
         //Get the Reward points per month for a customer
         [HttpGet("rewardpoints")]
-        public IEnumerable<RewardPoints> GetRewardPoints([FromQuery] string customerName, [FromQuery] string monthName)
+        public IEnumerable<RewardPoints> GetRewardPoints([FromQuery] string? customerName, [FromQuery] string? monthName)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace RewardPointsAPI_StandAlone.Controllers
 
         //Get the total Reward points for the customer over the three months period
         [HttpGet("rewardpoints/total")]
-        public IEnumerable<RewardPointsTotal> GetTotalRewardPoints([FromQuery] string customerName)
+        public IEnumerable<RewardPointsTotal> GetTotalRewardPoints([FromQuery] string? customerName)
         {
             try
             {
