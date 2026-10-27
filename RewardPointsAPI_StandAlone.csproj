@@ -7,6 +7,8 @@
     <UserSecretsId>9784a0dd-cce8-43ff-950b-b9e72c2cd538</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <!-- The test project lives under tests/; keep its files out of the web project default globs. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);tests/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

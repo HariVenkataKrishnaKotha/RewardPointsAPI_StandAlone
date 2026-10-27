@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RewardPointsAPI_StandAlone", "RewardPointsAPI_StandAlone.csproj", "{C1188146-BB3A-44ED-8F9F-F1CC9C41BCFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RewardPointsAPITest", "..\RewardPointsAPITest\RewardPointsAPITest.csproj", "{FDC82611-83C0-46F3-A89E-18AAB1A2A0EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RewardPointsAPITest", "tests\RewardPointsAPITest\RewardPointsAPITest.csproj", "{FDC82611-83C0-46F3-A89E-18AAB1A2A0EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
