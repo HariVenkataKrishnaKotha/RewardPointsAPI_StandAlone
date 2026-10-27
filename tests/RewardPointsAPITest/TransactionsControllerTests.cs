@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.AspNetCore.Mvc;
-using FluentAssertions;
 
 namespace RewardPointsAPI_StandAlone.Tests
 {
@@ -106,7 +105,7 @@ namespace RewardPointsAPI_StandAlone.Tests
             var result = _controller.Get();
 
             // Assert
-            Assert.IsInstanceOf<IEnumerable<Transaction>>(result);
+            Assert.That(result, Is.InstanceOf<IEnumerable<Transaction>>());
             Assert.That(result.Count(), Is.EqualTo(5));
             Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Hari Kotha"));
             Assert.That(result.ElementAt(0).Month, Is.EqualTo(1));
@@ -132,7 +131,7 @@ namespace RewardPointsAPI_StandAlone.Tests
             var result = _controller.GetRewardPoints("Hari Kotha", "January");
 
             // Assert
-            Assert.IsInstanceOf<IEnumerable<RewardPoints>>(result);
+            Assert.That(result, Is.InstanceOf<IEnumerable<RewardPoints>>());
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Hari Kotha"));
             Assert.That(result.ElementAt(0).Month, Is.EqualTo(1));
@@ -156,7 +155,7 @@ namespace RewardPointsAPI_StandAlone.Tests
             var result = _controller.GetTotalRewardPoints("Alex Jones");
 
             // Assert
-            Assert.IsInstanceOf<IEnumerable<RewardPointsTotal>>(result);
+            Assert.That(result, Is.InstanceOf<IEnumerable<RewardPointsTotal>>());
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.ElementAt(0).Customer, Is.EqualTo("Alex Jones"));
             Assert.That(result.ElementAt(0).Points, Is.EqualTo(164));
